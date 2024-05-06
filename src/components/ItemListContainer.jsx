@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { ItemListCards } from "./ItemListCards";
-
+import { useParams } from "react-router-dom";
 export const ItemListContainer = () => {
+  const { category } = useParams();
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -21,9 +22,18 @@ export const ItemListContainer = () => {
     fetchData();
   }, []);
 
+  let filteredProducts = productos.filter((product) =>
+  (product.categoryId.toLowerCase().includes(category) ||
+    product.title.toLowerCase().includes(category))
+  );
+
+  if (!category) {
+    filteredProducts = productos;
+  }
+
   return (
     <div>
-      {productos.map((producto) => (
+      {filteredProducts.map((producto) => (
         <ItemListCards key={producto.id} producto={producto} />
       ))}
     </div>

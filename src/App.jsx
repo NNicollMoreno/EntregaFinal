@@ -1,22 +1,25 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavigationBar from "./components/Navbar";
-import ItemListCards from "./components/ItemListCards";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
-import { Cart } from "./components/Cart";
+import { Checkout } from "./components/Checkout";
 
 function App() {
   return (
-    <Router>
-      {" "}
-      {/* AsegÃºrate de envolver tu componente con BrowserRouter */}
-      <NavigationBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/item/:id" element={<ItemListCards />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Router>
+    <div className="bg-slate-200 w-160%">
+      <Router>
+        {" "}
+        {}
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/checkOut/" element={<Checkout />} />
+          <Route path="/category/:category" element={<ItemListContainer />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

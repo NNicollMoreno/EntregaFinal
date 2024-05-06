@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   text-align: center;
   font-family: Montserrat;
 }
@@ -19,12 +18,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.NavBar {
+  width: 100%;
+}
+
 body {
   margin: 0;
+  padding: 0;
+  width: max-content;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -49,6 +53,9 @@ a:hover {
 .cart-items {
   background-color: red;
   color: white;
+  position: relative;
+  top: -60px;
+  left: 660px;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -87,6 +94,7 @@ button:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0px;
 }
 
 button {
@@ -123,4 +131,32 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+#lblCartCount {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
